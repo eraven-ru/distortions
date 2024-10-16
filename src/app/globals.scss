@@ -1,0 +1,151 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+$main-padding: 80px;
+$main-padding-sm: 32px;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+}
+
+#background-image {
+  visibility: hidden;
+  pointer-events: none;
+  position: absolute;
+
+  width: auto;
+  height: 100%;
+
+  max-width: unset;
+}
+
+.root {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+}
+
+//#animation {
+//  position: absolute;
+//  z-index: 2;
+//
+//  width: 100%;
+//  height: 100%;
+//}
+
+h1 {
+  font-size: 40px;
+  font-weight: 600;
+}
+
+p {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.header {
+  position: fixed;
+  padding: $main-padding;
+
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @media (max-width: 900px) {
+    padding: $main-padding-sm;
+  }
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  color: white;
+}
+
+.repo-link {
+  padding: 16px;
+  border-radius: 14px;
+
+  background: rgba(255, 255, 255, 0.15);
+
+  display: flex;
+  align-items: center;
+  gap: 40px;
+
+  font-size: 18px;
+  color: white;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+  }
+}
+
+.navigation {
+  position: fixed;
+  bottom: $main-padding;
+  right: 50%;
+  transform: translateX(50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+
+  color: white;
+
+  & a {
+    font-size: 40px;
+    opacity: 0.7;
+    transition: 0.2s;
+
+    &:hover {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+
+    &.active {
+      opacity: 1;
+    }
+  }
+
+  @media (max-width: 900px) {
+    gap: 20px;
+    flex-wrap: wrap;
+
+    & a {
+      font-size: 32px;
+    }
+  }
+}
+
+
