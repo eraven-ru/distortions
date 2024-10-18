@@ -122,11 +122,14 @@ function Animation({ grid, radius, relaxation, strength, minPower, maxPower }: {
         const bgImage = document.querySelector('#background-image') as HTMLImageElement
         const bgTexture = new THREE.Texture()
 
-        bgImage.onload = event => {
+        const setTexture = () => {
             bgTexture.image = bgImage
             bgTexture.flipY = false
             bgTexture.needsUpdate = true
         }
+
+        if (bgImage.complete) setTexture()
+        else bgImage.onload = setTexture
 
         return bgTexture
     }

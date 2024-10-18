@@ -20,7 +20,7 @@ export default function Stone() {
                 relaxation={0.6}
 
                 minPower={1}
-                maxPower={10}
+                maxPower={100}
             />
         </>
     )

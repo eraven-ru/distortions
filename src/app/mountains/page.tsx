@@ -20,7 +20,7 @@ export default function Mountains() {
                 relaxation={0.4}
 
                 minPower={1}
-                maxPower={5}
+                maxPower={100}
             />
         </>
     )
