@@ -23,6 +23,7 @@ const nextConfig = {
     typescript: {
         ignoreBuildErrors: true,
     },
+    basePath: '/distortions'
 };
 
 export default nextConfig;
