@@ -9,7 +9,9 @@ I used Next.js as a base framework just cause I love it
 
 -----------
 
-Demo is [there](https://eraven.ru/distortions)
+Demo is [there](https://eraven.ru/distortions) 
+
+<sup>(if it's failing big sorry, i'll see to compatibility later i promise 😭)</sup>
 
 For the local stuff you know the drill
 
