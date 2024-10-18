@@ -61,11 +61,7 @@ function Animation({ grid, radius, relaxation, strength, minPower, maxPower }: {
 
         const geometry = new THREE.PlaneGeometry(1, 1, 1, 1)
 
-        const bgImage = document.querySelector('#background-image') as HTMLImageElement
-        const bgTexture = new THREE.Texture(bgImage)
-        bgTexture.flipY = false
-        bgTexture.needsUpdate = true
-
+        const bgTexture = getBgTexture()
         const gridTexture = getGridTexture()
 
         const material = new THREE.ShaderMaterial({
@@ -83,7 +79,7 @@ function Animation({ grid, radius, relaxation, strength, minPower, maxPower }: {
         scene.add(plane)
 
         function animate() {
-            updateGridTexture(gridTexture)
+            if (!!bgTexture.image) updateGridTexture(gridTexture)
             renderer.render(scene, camera)
             frame = requestAnimationFrame(animate)
         }
@@ -121,6 +117,19 @@ function Animation({ grid, radius, relaxation, strength, minPower, maxPower }: {
             cancelAnimationFrame(frame)
         }
     }, [])
+
+    function getBgTexture() {
+        const bgImage = document.querySelector('#background-image') as HTMLImageElement
+        const bgTexture = new THREE.Texture()
+
+        bgImage.onload = event => {
+            bgTexture.image = bgImage
+            bgTexture.flipY = false
+            bgTexture.needsUpdate = true
+        }
+
+        return bgTexture
+    }
 
     function getGridTexture() {
         const width = grid

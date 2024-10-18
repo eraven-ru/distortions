@@ -1,9 +1,21 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    images: { domains: [
-            '89.111.170.250',
-            'eraven.ru',
-        ]},
+    images: {
+        remotePatterns: [
+            {
+                protocol: "http",
+                hostname: "eraven.ru",
+            },
+            {
+                protocol: "https",
+                hostname: "eraven.ru",
+            },
+            {
+                protocol: "http",
+                hostname: "89.111.170.250",
+            },
+        ]
+    },
     reactStrictMode: false,
     eslint: {
         ignoreDuringBuilds: true
@@ -11,7 +23,6 @@ const nextConfig = {
     typescript: {
         ignoreBuildErrors: true,
     },
-    cssModules: true,
 };
 
 export default nextConfig;

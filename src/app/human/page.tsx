@@ -14,7 +14,7 @@ export default function Human() {
             />
 
             <Animation
-                grid={300}
+                grid={400}
                 radius={0.03}
                 strength={0.7}
                 relaxation={0.95}
