@@ -14,6 +14,10 @@ const nextConfig = {
                 protocol: "http",
                 hostname: "89.111.170.250",
             },
+            {
+                protocol: "http",
+                hostname: "222.167.246.124"
+            }
         ]
     },
     reactStrictMode: false,
@@ -23,7 +27,8 @@ const nextConfig = {
     typescript: {
         ignoreBuildErrors: true,
     },
-    basePath: '/distortions'
+    basePath: '/distortions',
+    output: "standalone"
 };
 
 export default nextConfig;
